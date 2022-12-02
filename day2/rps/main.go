@@ -36,6 +36,14 @@ func main() {
 	games := getFile()
 
 	var Total = 0
+	Total = logicPart1(games)
+	fmt.Printf("\nfinal score: %v\n", Total)
+	Total = logicPart2(games)
+	fmt.Printf("\nfinal score part 2: %v\n", Total)
+}
+
+func logicPart1(games [][]string) int {
+	var Total = 0
 	for _, shps := range games {
 		opp, me := shps[0], shps[1]
 		var score int
@@ -85,5 +93,59 @@ func main() {
 		// log.Print(score)
 		Total += score
 	}
-	fmt.Printf("\nfinal score: %v\n", Total)
+	return Total
+}
+
+func logicPart2(games [][]string) int {
+	var Total = 0
+	for _, shps := range games {
+		opp, me := shps[0], shps[1]
+		var score int
+		switch opp {
+		case "A":
+			//Rock
+			if me == "Y" {
+				//needs draw
+				score = D + R
+			} else if me == "X" {
+				//need to lose
+				score = L + S
+			} else {
+				//need a win
+				score = W + P
+			}
+		case "B":
+			//Paper
+			if me == "Z" {
+				//need to win
+				score = W + S
+			} else if me == "Y" {
+				//need to draw, Paper
+				score = D + P
+			} else {
+				//lose, Rock
+				score = L + R
+			}
+		case "C":
+			//Scissors
+			if me == "X" {
+				//need to lose
+				score = L + P
+
+			} else if me == "Z" {
+				//needs to win
+				score = W + R
+
+			} else {
+				//needs to draw
+				score = D + S
+
+			}
+		default:
+			fmt.Println(opp, me)
+		}
+		// log.Print(score)
+		Total += score
+	}
+	return Total
 }
