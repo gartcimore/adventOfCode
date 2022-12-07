@@ -29,6 +29,22 @@ func main() {
 	}
 	fmt.Printf("total part 1 is %d\n", totalPart1)
 
+	var totalPart2 = 0
+	for index := 0; index < len(cleaningTasks); index += 2 {
+		if cleaningTasks[index].lower >= cleaningTasks[index+1].lower &&
+			cleaningTasks[index].lower <= cleaningTasks[index+1].upper ||
+			cleaningTasks[index].upper >= cleaningTasks[index+1].lower &&
+				cleaningTasks[index].upper <= cleaningTasks[index+1].upper ||
+			cleaningTasks[index+1].lower >= cleaningTasks[index].lower &&
+				cleaningTasks[index+1].lower <= cleaningTasks[index].upper ||
+			cleaningTasks[index+1].upper >= cleaningTasks[index].lower &&
+				cleaningTasks[index+1].upper <= cleaningTasks[index].upper {
+			fmt.Printf("cleaningTasks[index] overlaps\n")
+			totalPart2 += 1
+		}
+	}
+	fmt.Printf("total part 2 is %d\n", totalPart2)
+
 }
 
 type cleaningTask struct {
