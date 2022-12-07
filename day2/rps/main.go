@@ -44,7 +44,7 @@ func main() {
 
 func logicPart1(games [][]string) int {
 	var Total = 0
-	for _, shps := range games {
+	for index, shps := range games {
 		opp, me := shps[0], shps[1]
 		var score int
 		switch opp {
@@ -77,20 +77,17 @@ func logicPart1(games [][]string) int {
 			if me == "X" {
 				//win, Rock
 				score = W + R
-
 			} else if me == "Z" {
 				//Draw, Scissors
 				score = D + S
-
 			} else {
 				//lose, Paper
 				score = L + P
-
 			}
 		default:
 			fmt.Println(opp, me)
 		}
-		// log.Print(score)
+		fmt.Printf("score of round (%v) %v vs %v : %v\n", index, opp, me, score)
 		Total += score
 	}
 	return Total
