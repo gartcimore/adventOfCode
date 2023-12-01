@@ -50,7 +50,6 @@ class Day1(Day):
                 current_line = current_line[1:]
 
             print(f"current line is: {processed_line}")
-            current_line_numbers = list(filter(str.isdigit, current_line))
             current_line_cv = int(processed_line[0] + processed_line[-1])
             calibration_value += current_line_cv
         return calibration_value
