@@ -11,6 +11,9 @@ class Day:
         self.raw_items = []
         self.load_data()
 
+    def dummy(self):
+        return """ Dummy method of Day {}, running in step {} """.format(self.num, self.step)
+
     def load_data(self) -> None:
         with open(f"./input{self.step.value}{'' if self.mode == Mode.PROD else '_test'}", "r") as input_file:
             self.raw_items = [item for item in input_file.read().split(self.split_by) if len(item.strip()) > 0]
