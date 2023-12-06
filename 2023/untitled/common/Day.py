@@ -3,12 +3,12 @@ from common.Step import Step
 
 
 class Day:
-    def __init__(self, day_number: int, mode: Mode = Mode.TEST, step: Step = Step.STEP_1, split_by: str = "\n") -> None:
-        self.num: int = day_number
+    def __init__(self, day_name: str, mode: Mode = Mode.TEST, step: Step = Step.STEP_1, split_by: str = "\n") -> None:
+        self.num: int = int("".join([char for char in list(day_name) if char.isdigit()]))
         self.mode = mode
         self.step: Step = step
         self.split_by: str = split_by
-        self.raw_items = []
+        self.raw_items: list[str] = []
         self.load_data()
 
     def dummy(self):

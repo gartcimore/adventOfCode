@@ -10,7 +10,7 @@ class Day3(Day):
     symbols = {}
 
     def __init__(self, step: Step = Step.STEP_1) -> None:
-        super().__init__(3, mode=Mode.TEST, step=step)
+        super().__init__(__class__.__name__, mode=Mode.TEST, step=step)
 
 
     def createSymbolMap(self):

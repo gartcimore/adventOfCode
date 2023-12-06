@@ -26,7 +26,7 @@ class Day1(Day):
     }
 
     def __init__(self, step: Step = Step.STEP_1) -> None:
-        super().__init__(1, mode=Mode.TEST, step=step)
+        super().__init__(__class__.__name__, mode=Mode.TEST, step=step)
 
     def getCalibrationValue(self):
         calibration_value = 0

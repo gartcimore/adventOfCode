@@ -13,7 +13,7 @@ class Day5(Day):
     symbols = {}
 
     def __init__(self, step: Step = Step.STEP_1) -> None:
-        super().__init__(5, mode=Mode.TEST, step=step)
+        super().__init__(__class__.__name__, mode=Mode.TEST, step=step)
 
     def extractSeeds(self):
         # match = re.search(r'seeds: (\d+)+', self.raw_items[0])
