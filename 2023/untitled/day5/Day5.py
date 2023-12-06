@@ -10,8 +10,6 @@ from common.Step import Step
 
 class Day5(Day):
 
-    symbols = {}
-
     def __init__(self, step: Step = Step.STEP_1) -> None:
         super().__init__(__class__.__name__, mode=Mode.TEST, step=step)
 
