@@ -33,19 +33,25 @@ class Day5(Day):
         for seed in seeds:
             working = seed
             token = ""
+            print("\nseed "+str(seed)+" =>", end=" ")
+            matched = False
             for line in self.raw_items:
                 if "seeds" in line:
                     pass
                 elif "map" in line:
                     token = line.split()[0]
-                else:
+                    matched = False
+                    print(token, end=" ")
+                elif not matched:
                     destination, source, ranch = list(map(int, line.split()))
-
                     if source <= working <= source + ranch:
                         working += destination - source
+                        print(str(working)+" =>", end=" ")
+                        matched = True
+
             if(lowest_location > working):
                 lowest_location = working
-            print(f"seed {seed} => {working}")
+            print(f"\nseed {seed} => {working}")
 
         return lowest_location
 
