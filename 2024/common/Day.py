@@ -9,6 +9,7 @@ class Day:
         self.step: Step = step
         self.split_by: str = split_by
         self.raw_items: list[str] = []
+        self.input_file: ""
         self.load_data()
 
     def dummy(self):
@@ -16,8 +17,8 @@ class Day:
 
     def load_data(self) -> None:
         # with open(f"./input{self.step.value}{'' if self.mode == Mode.PROD else '_test'}", "r") as input_file:
-        with open(f"./input{'' if self.mode == Mode.PROD else '_test'}", "r") as input_file:
-            self.raw_items = [item for item in input_file.read().split(self.split_by) if len(item.strip()) > 0]
+        with open(f"./input{'' if self.mode == Mode.PROD else '_test'}", "r") as self.input_file:
+            self.raw_items = [item for item in self.input_file.read().split(self.split_by) if len(item.strip()) > 0]
 
     def display(self):
         for item in self.raw_items:
