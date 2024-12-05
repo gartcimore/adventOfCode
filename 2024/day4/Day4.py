@@ -35,7 +35,21 @@ class Day4(Day):
 
         return sol
 
+    def step2(self):
+        sol = 0
+        rows, cols = len(self.raw_items), len(self.raw_items[0])
+        for row in range(rows):
+            for col in range(cols):
+                if row+2<rows and col+2<cols and self.raw_items[row][col]=='M' and self.raw_items[row+1][col+1]=='A' and self.raw_items[row+2][col+2]=='S' and self.raw_items[row+2][col]=='M' and self.raw_items[row][col+2]=='S':
+                    sol += 1
+                if row+2<rows and col+2<cols and self.raw_items[row][col]=='M' and self.raw_items[row+1][col+1]=='A' and self.raw_items[row+2][col+2]=='S' and self.raw_items[row+2][col]=='S' and self.raw_items[row][col+2]=='M':
+                    sol += 1
+                if row+2<rows and col+2<cols and self.raw_items[row][col]=='S' and self.raw_items[row+1][col+1]=='A' and self.raw_items[row+2][col+2]=='M' and self.raw_items[row+2][col]=='M' and self.raw_items[row][col+2]=='S':
+                    sol += 1
+                if row+2<rows and col+2<cols and self.raw_items[row][col]=='S' and self.raw_items[row+1][col+1]=='A' and self.raw_items[row+2][col+2]=='M' and self.raw_items[row+2][col]=='S' and self.raw_items[row][col+2]=='M':
+                    sol += 1
 
+        return sol
 
 
 # Part 1
@@ -47,6 +61,6 @@ print(f"Part#1 Prod: {day.step1()}")
 
 # Part 2
 day: Day4= Day4(step=Step.STEP_2)
-print(f"Part#2 Test: {day.dummy()}")
+print(f"Part#2 Test: {day.step2()}")
 day.prod_mode()
-print(f"Part#2 Prod: {day.dummy()}")
+print(f"Part#2 Prod: {day.step2()}")
