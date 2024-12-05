@@ -40,13 +40,13 @@ class Day4(Day):
         rows, cols = len(self.raw_items), len(self.raw_items[0])
         for row in range(rows):
             for col in range(cols):
-                if row+2<rows and col+2<cols and self.raw_items[row][col]=='M' and self.raw_items[row+1][col+1]=='A' and self.raw_items[row+2][col+2]=='S' and self.raw_items[row+2][col]=='M' and self.raw_items[row][col+2]=='S':
+                if row+2 < rows and col+2 < cols and self.raw_items[row][col]== "M" and self.raw_items[row+1][col+1]== "A" and self.raw_items[row+2][col+2]== "S" and self.raw_items[row+2][col]== "M" and self.raw_items[row][col+2]== "S":
                     sol += 1
-                if row+2<rows and col+2<cols and self.raw_items[row][col]=='M' and self.raw_items[row+1][col+1]=='A' and self.raw_items[row+2][col+2]=='S' and self.raw_items[row+2][col]=='S' and self.raw_items[row][col+2]=='M':
+                if row+2 < rows and col+2 < cols and self.raw_items[row][col]== "M" and self.raw_items[row+1][col+1]== "A" and self.raw_items[row+2][col+2]== "S" and self.raw_items[row+2][col]== "S" and self.raw_items[row][col+2]== "M":
                     sol += 1
-                if row+2<rows and col+2<cols and self.raw_items[row][col]=='S' and self.raw_items[row+1][col+1]=='A' and self.raw_items[row+2][col+2]=='M' and self.raw_items[row+2][col]=='M' and self.raw_items[row][col+2]=='S':
+                if row+2 < rows and col+2 < cols and self.raw_items[row][col]== "S" and self.raw_items[row+1][col+1]== "A" and self.raw_items[row+2][col+2]== "M" and self.raw_items[row+2][col]== "M" and self.raw_items[row][col+2]== "S":
                     sol += 1
-                if row+2<rows and col+2<cols and self.raw_items[row][col]=='S' and self.raw_items[row+1][col+1]=='A' and self.raw_items[row+2][col+2]=='M' and self.raw_items[row+2][col]=='S' and self.raw_items[row][col+2]=='M':
+                if row+2 < rows and col+2 < cols and self.raw_items[row][col]=="S" and self.raw_items[row+1][col+1]=="A" and self.raw_items[row+2][col+2]=="M" and self.raw_items[row+2][col]=="S" and self.raw_items[row][col+2]=="M":
                     sol += 1
 
         return sol
